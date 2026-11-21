@@ -1,16 +1,16 @@
-# Latent profiles of personality traits
+# Latent Profile Analysis: A Reproducible Python Example with Maladaptive Personality Traits
 
-A reproducible demonstration of how Gaussian mixture models summarize 25 synthetic continuous scores named after PID-5 facets. The project compares two and four profiles to show the difference between **overall trait elevation** and **the relative shape of a profile**.
+Latent profile analysis, a form of model-based profiling, identifies groups of observations that share similar configurations across several continuous indicators. It can reveal heterogeneity and combinations of characteristics that may be obscured when indicators are examined separately or combined into a single overall score. This Python example illustrates a workflow that can be applied to other sets of continuous indicators.
 
-**All data are completely synthetic.** The simulation was deliberately designed with four underlying components for teaching. Every table and figure comes from fictional scores generated with a fixed seed and hand-designed parameters. Finding four components in this run illustrates the simulation design and provides no empirical evidence about personality profiles.
+The demonstration uses 25 continuous scores named after facets of the Personality Inventory for DSM-5 (PID-5; Krueger et al., 2012; Sánchez, Montes, et al., 2023). **All data are completely synthetic.** The data were generated with four components and a fixed seed specifically to demonstrate the procedure. No scores come from real participants, and the results provide no empirical or clinical evidence.
 
 ## What the models show
 
-Latent profile analysis uses a mixture of distributions to describe patterns in continuous indicators. Here each component has a mean and variance for every facet, and the model estimates each observation's probability of belonging to each component. The diagonal covariance specification assumes independence between facets within a component. The plots group the 25 named facets under Negative Affectivity, Detachment, Antagonism, Disinhibition and Psychoticism for display. The grouping serves as a visual guide and does not implement a scoring key.
+The Gaussian mixture model estimates a mean and variance for each facet within each component. It also estimates posterior probabilities of component membership for each observation. The diagonal covariance specification assumes independence between facets within a component.
 
-- **Two profiles** summarize a broad lower-to-higher elevation gradient. Overall elevation accounts for about 85% of the weighted variation between the fitted centroids.
-- **Four profiles** retain the low and high profiles and reveal two intermediate patterns. Centering each profile makes the contrasts across and within domains clearer. All five runs agree on the maximum-posterior assignments for both two and four profiles.
-- **Six profiles** illustrate the tradeoff between fit and stability. Relative to four, in-sample log-likelihood improves. The smallest group falls from 218 to 35 and the minimum pairwise adjusted Rand index across seeds falls from 1.00 to 0.75.
+- **Two profiles** mainly distinguish lower from higher overall elevation. Overall elevation accounts for about 85% of the weighted variation between the fitted centroids.
+- **Four profiles** retain the low and high profiles and distinguish two intermediate configurations. All five runs agree on the maximum-posterior assignments for both two and four profiles.
+- **Six profiles** improve in-sample log-likelihood relative to four. The smallest group falls from 218 to 35, and the minimum pairwise adjusted Rand index (ARI) across seeds falls from 1.00 to 0.75.
 
 BIC balances in-sample fit and model complexity. Relative entropy measures certainty given the fitted model. Both AIC and BIC favor four in this run. Relative entropy is high for both two and four, even though they summarize different aspects of the scores. The notebook reads these results alongside group sizes, posterior probabilities and stability across seeds.
 
@@ -20,17 +20,18 @@ See the [analysis notebook](notebooks/latent_profile_analysis.ipynb) for the ful
 
 ### How to read the profiles
 
-Each line traces the 25 standardized facet means for a fitted profile. Zero marks the synthetic sample mean for each facet. Two profiles mainly summarize a lower-to-higher elevation gradient. Four distinguish two additional profiles with similar overall elevation and different shapes.
+Each line in the main figure traces the 25 standardized facet means for one of the four fitted profiles. Zero marks the synthetic sample mean for each facet.
 
-For example, P2 is relatively higher on Hostility and lower on Anxiousness, two facets displayed under Negative Affectivity. P3 shows the reverse contrast. Within Antagonism, P2 is relatively higher on Callousness and lower on Attention Seeking, while P3 reverses that pattern. The simulation uses four components with deliberately specified facet contrasts for teaching. These patterns provide no empirical evidence about personality.
+In the **two-profile solution**, P1 scores relatively low on virtually all 25 facets (*Lower overall maladaptive-trait elevation*). P2 scores relatively high on virtually all 25 (*Higher overall maladaptive-trait elevation*). The two-component solution primarily summarizes a general elevation gradient.
 
-### Facet abbreviations in the main figure
+In the **four-profile solution**, the two intermediate profiles have similar overall elevation and different configurations. P2 combines relatively higher Hostility, Callousness, Manipulativeness and Deceitfulness with higher Impulsivity and Risk Taking and lower Anxiousness. P3 shows an approximately opposite pattern, with higher Anxiousness and Depressivity and lower scores on several Antagonism facets, including Callousness and Manipulativeness. The contrast illustrates how observations with similar overall elevation can differ in their combinations of traits.
 
-The five domains group the facets for readability and teaching. This display does not constitute an official PID-5 scoring key. Published models may associate some facets with more than one domain or report cross-loadings. The figure helps readers navigate the 25 synthetic facets and does not establish a definitive factor structure.
+The five-domain **display grouping** is a visual guide. Some facets are associated with more than one domain or show cross-loadings in published models. The grouping does not assign each facet uniquely to a domain, provide an official PID-5 scoring key or establish a definitive factor structure.
 
-All data are completely synthetic. The facet labels identify reference dimensions in personality research. The simulated values come from a teaching model that uses no real participant records and does not reproduce the original empirical study.
+<details>
+<summary>Facet abbreviation key</summary>
 
-| Abbreviation | Facet | Display domain |
+| Abbreviation | Facet | Display grouping |
 |---|---|---|
 | Anx | Anxiousness | Negative Affectivity |
 | EL | Emotional Lability | Negative Affectivity |
@@ -57,6 +58,8 @@ All data are completely synthetic. The facet labels identify reference dimension
 | UBE | Unusual Beliefs and Experiences | Psychoticism |
 | Ecc | Eccentricity | Psychoticism |
 | PD | Perceptual Dysregulation | Psychoticism |
+
+</details>
 
 | Supporting figure | What to look for |
 |---|---|
@@ -88,3 +91,9 @@ The stack uses NumPy, pandas, SciPy, scikit-learn, Matplotlib and Jupyter. The i
 ## Limitations
 
 The generator deliberately builds in four components and a clear shape contrast. Agreement across seeds measures optimization stability on one simulated sample. Generalization and stability across samples require separate evaluation. In empirical data, skew, residual correlations, measurement error and sampling can all affect apparent profiles. The components here illustrate modeling choices and have no diagnostic meaning.
+
+## References
+
+Krueger, R. F., Derringer, J., Markon, K. E., Watson, D., & Skodol, A. E. (2012). Initial construction of a maladaptive personality trait model and inventory for DSM-5. *Psychological Medicine, 42*(9), 1879–1890. https://doi.org/10.1017/S0033291711002674
+
+Sánchez, R. O., Montes, S. A., Galarza, A. L., Somerstein, L. D., & Gainza, M. D. (2023). Una versión reducida y modificada del Inventario de Personalidad para el DSM-5 (PID-5) en la Argentina. *Interdisciplinaria, 40*(1), 115–136. https://doi.org/10.16888/interd.2023.40.1.7
