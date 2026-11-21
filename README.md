@@ -2,7 +2,7 @@
 
 Latent profile analysis, a form of model-based profiling, identifies groups of observations that share similar configurations across several continuous indicators. It can reveal heterogeneity and combinations of characteristics that may be obscured when indicators are examined separately or combined into a single overall score. This Python example illustrates a workflow that can be applied to other sets of continuous indicators.
 
-The demonstration uses 25 continuous scores named after facets of the Personality Inventory for DSM-5 (PID-5; Krueger et al., 2012; Sánchez, Montes, et al., 2023). **All data are completely synthetic.** The data were generated with four components and a fixed seed specifically to demonstrate the procedure. No scores come from real participants, and the results provide no empirical or clinical evidence.
+The demonstration uses 25 continuous scores named after facets of the Personality Inventory for DSM-5 (PID-5), originally developed by Krueger et al. (2012). Sánchez, Montes, and colleagues (2023) later reported on a shortened and modified version for use in Argentina. **All data are completely synthetic.** The data were generated with four components and a fixed seed specifically to demonstrate the procedure. No scores come from real participants, and the results provide no empirical or clinical evidence.
 
 ## What the models show
 
