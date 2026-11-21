@@ -24,6 +24,40 @@ Each line traces the 25 standardized facet means for a fitted profile. Zero mark
 
 For example, P2 is relatively higher on Hostility and lower on Anxiousness, two facets displayed under Negative Affectivity. P3 shows the reverse contrast. Within Antagonism, P2 is relatively higher on Callousness and lower on Attention Seeking, while P3 reverses that pattern. The simulation uses four components with deliberately specified facet contrasts for teaching. These patterns provide no empirical evidence about personality.
 
+### Facet abbreviations in the main figure
+
+The five domains group the facets for readability and teaching. This display does not constitute an official PID-5 scoring key. Published models may associate some facets with more than one domain or report cross-loadings. The figure helps readers navigate the 25 synthetic facets and does not establish a definitive factor structure.
+
+All data are completely synthetic. The facet labels identify reference dimensions in personality research. The simulated values come from a teaching model that uses no real participant records and does not reproduce the original empirical study.
+
+| Abbreviation | Facet | Display domain |
+|---|---|---|
+| Anx | Anxiousness | Negative Affectivity |
+| EL | Emotional Lability | Negative Affectivity |
+| SI | Separation Insecurity | Negative Affectivity |
+| Sub | Submissiveness | Negative Affectivity |
+| Hos | Hostility | Negative Affectivity |
+| Pers | Perseveration | Negative Affectivity |
+| With | Withdrawal | Detachment |
+| Anh | Anhedonia | Detachment |
+| IA | Intimacy Avoidance | Detachment |
+| Dep | Depressivity | Detachment |
+| RA | Restricted Affectivity | Detachment |
+| Susp | Suspiciousness | Detachment |
+| Man | Manipulativeness | Antagonism |
+| Dec | Deceitfulness | Antagonism |
+| Gra | Grandiosity | Antagonism |
+| AS | Attention Seeking | Antagonism |
+| Cal | Callousness | Antagonism |
+| Irr | Irresponsibility | Disinhibition |
+| Imp | Impulsivity | Disinhibition |
+| Distr | Distractibility | Disinhibition |
+| RT | Risk Taking | Disinhibition |
+| RP | Rigid Perfectionism | Disinhibition |
+| UBE | Unusual Beliefs and Experiences | Psychoticism |
+| Ecc | Eccentricity | Psychoticism |
+| PD | Perceptual Dysregulation | Psychoticism |
+
 | Supporting figure | What to look for |
 |---|---|
 | [Fit and stability](figures/fit-and-stability.png) | AIC, BIC and seed-to-seed agreement for the candidate counts |
